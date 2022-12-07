@@ -8,13 +8,40 @@
 
 
     <Button
-        android:id="@+id/NewSleepButton"
+        android:id="@+id/StatsButton"
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginEnd="56dp"
+        android:backgroundTint="@color/light_blue"
+        android:text="@string/stats"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newSleepButton" />
+
+    <Button
+        android:id="@+id/MyGoalsButton"
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginEnd="56dp"
+        android:backgroundTint="@color/teal_main"
+        android:text="@string/mygoals"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/StatsButton" />
+
+    <Button
+        android:id="@+id/newSleepButton"
         android:layout_width="300dp"
         android:layout_height="80dp"
         android:layout_marginStart="55dp"
         android:layout_marginTop="100dp"
         android:layout_marginEnd="56dp"
-        android:text="New Sleep"
+        android:backgroundTint="@color/dark_blue"
+        android:text="@string/new_sleep"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
