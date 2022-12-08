@@ -17,6 +17,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private static final String TAG = "MAIN_ACTIVITY";
 
+    public static final String SHARED_PREF_NAME = "TIME_SELECTOR";
+    public static final String TIME = "TIME_SELECTED";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,13 +57,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         if (view.equals(findViewById(R.id.StatsButton))) {
-            System.out.println("Stats button");
+
+            Intent statsMenuIntent = new Intent(this, StatMenuActivity.class);
+            startActivity(statsMenuIntent);
 
         } else if (view.equals(findViewById(R.id.newSleepButton))) {
-            System.out.println("New sleep button");
+
+            Intent newSleepIntent = new Intent(this, NewSleepActivity.class);
+            startActivity(newSleepIntent);
 
         } else if (view.equals(findViewById(R.id.MyGoalsButton))) {
-            System.out.println("Goals button");
+
+            Intent goalsMenuIntent = new Intent(this, GoalsMenuActivity.class);
+            startActivity(goalsMenuIntent);
 
         }
     }

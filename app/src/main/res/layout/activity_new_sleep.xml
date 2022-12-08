@@ -4,6 +4,283 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/grey_background"
     tools:context=".NewSleepActivity">
+
+    <TextView
+        android:id="@+id/new_sleep_label"
+        android:layout_width="309dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/new_sleep"
+        android:textAlignment="textStart"
+        android:textColor="@color/white"
+        android:textSize="34sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="24dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/set_date_button"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/dark_blue"
+        android:onClick="setDate"
+        android:text="@string/date_button_set"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
+
+    <Button
+        android:id="@+id/set_bed_time"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/dark_blue"
+        android:onClick="setBedTime"
+        android:text="@string/set_bed_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/set_date_button" />
+
+    <Button
+        android:id="@+id/set_bed_time2"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/dark_blue"
+        android:onClick="setWakeTime"
+        android:text="@string/set_wake_button"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/set_bed_time" />
+
+    <TextView
+        android:id="@+id/date_is_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/set_date_button"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="20dp"
+        android:layout_toLeftOf="@+id/set_date_button"
+        android:text="@string/date_view_set"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toEndOf="@+id/set_date_button"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
+
+    <TextView
+        android:id="@+id/bed_set_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/set_date_button"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="50dp"
+        android:layout_toLeftOf="@+id/set_date_button"
+        android:text="@string/bed_set_label"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toEndOf="@+id/set_bed_time"
+        app:layout_constraintTop_toBottomOf="@+id/date_is_label" />
+
+    <TextView
+        android:id="@+id/wake_set_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/set_date_button"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="50dp"
+        android:layout_toLeftOf="@+id/set_date_button"
+        android:text="@string/wake_set_label"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toEndOf="@+id/set_bed_time2"
+        app:layout_constraintTop_toBottomOf="@+id/bed_set_label" />
+
+    <TextView
+        android:id="@+id/date_selected_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/date_is_label"
+        android:layout_alignRight="@+id/set_date_button"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="2dp"
+        android:text="@string/date_selected"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toEndOf="@+id/set_date_button"
+        app:layout_constraintTop_toBottomOf="@+id/date_is_label" />
+
+    <TextView
+        android:id="@+id/bed_time_selected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/date_is_label"
+        android:layout_alignRight="@+id/set_date_button"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="2dp"
+        android:text="@string/time_bed"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toEndOf="@+id/set_bed_time"
+        app:layout_constraintTop_toBottomOf="@+id/bed_set_label" />
+
+    <TextView
+        android:id="@+id/wake_time_selected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/date_is_label"
+        android:layout_alignRight="@+id/set_date_button"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="2dp"
+        android:text="@string/time_wake"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toEndOf="@+id/set_bed_time2"
+        app:layout_constraintTop_toBottomOf="@+id/wake_set_label" />
+
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="363dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="24dp"
+        android:orientation="horizontal"
+        android:outlineProvider="none"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sleep_rating_label">
+
+
+        <RadioButton
+            android:id="@+id/radioButton1"
+            android:layout_width="72dp"
+            android:layout_height="wrap_content"
+            android:background="@color/dark_blue"
+            android:buttonTint="@android:color/white"
+            android:text="1"
+            android:textColor="@color/white" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="72dp"
+            android:layout_height="wrap_content"
+            android:background="@color/dark_blue"
+            android:buttonTint="@android:color/white"
+            android:text="2"
+            android:textColor="@color/white" />
+
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="72dp"
+            android:layout_height="wrap_content"
+            android:background="@color/dark_blue"
+            android:buttonTint="@android:color/white"
+            android:text="3"
+            android:textColor="@color/white" />
+
+        <RadioButton
+            android:id="@+id/radioButton4"
+            android:layout_width="75dp"
+            android:layout_height="wrap_content"
+            android:background="@color/dark_blue"
+            android:buttonTint="@android:color/white"
+            android:text="4"
+            android:textColor="@color/white" />
+
+        <RadioButton
+            android:id="@+id/radioButton5"
+            android:layout_width="72dp"
+            android:layout_height="wrap_content"
+            android:background="@color/dark_blue"
+            android:buttonTint="@android:color/white"
+            android:text="5"
+            android:textColor="@color/white" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/sleep_rating_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="Please select your sleep quality rating (1-5)"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/set_bed_time2" />
+
+    <TextView
+        android:id="@+id/enter_dream_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="136dp"
+        android:layout_marginEnd="18dp"
+        android:text="(Optionally) enter notes about dreams you had"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/set_bed_time2" />
+
+    <EditText
+        android:id="@+id/edit_dream_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="24dp"
+        android:autoText="false"
+        android:background="@color/dark_blue"
+        android:backgroundTint="@color/dark_blue"
+        android:ems="10"
+        android:hint="Enter notes here"
+        android:inputType="textPersonName"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/enter_dream_label"
+        app:strokeColor="@color/white"
+        app:strokeWidth="2dp" />
+
+    <Button
+        android:id="@+id/save_sleep_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="158dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="159dp"
+        android:onClick="getRating"
+        android:text="Save Sleep"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_dream_text" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

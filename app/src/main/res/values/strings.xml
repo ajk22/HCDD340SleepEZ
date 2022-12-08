@@ -34,4 +34,24 @@
     \n
     \n
     </string>
+
+    <string name="date_label_set">Press the button to set the date</string>
+    <string name="date_button_set">Set Date</string>
+    <string name="date_view_set">The Date is: </string>
+    <string name="date_selected"></string>
+
+    <string name="set_wake_button">Set Wake Time</string>
+    <string name="set_bed_button">Set Bed Time</string>
+    <string name="wake_set_label">Wake Time is:</string>
+    <string name="bed_set_label">Bed Time is:</string>
+    <string name="time_bed"></string>
+    <string name="time_wake"></string>
+
+    <string name="time_picker_example">Time Picker Example</string>
+    <string name="time_pick">Pick the time and press save button</string>
+    <string name="time_save">Save</string>
+    <string name="time_selected"></string>
+    <string name="time_current">The Time is:</string>
+
+
 </resources>
