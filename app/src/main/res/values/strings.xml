@@ -13,6 +13,19 @@
     <string name="mygoals">My Goals</string>
     <string name="title_activity_goals">GoalsActivity</string>
 
+    <!--Activity Headers-->
+    <string name="goals_activity_header">My Goals</string>
+
+    <!--Sub-Headers-->
+    <string name="pinned_goal_header">Pinned Goal</string>
+    <string name="other_goals">Other Goals</string>
+
+    <!--Button Titles-->
+    <string name="newGoal">New Goal</string>
+
+    <!--Colors n' Stuff-->
+    <color name="generalBGColor">#606B82</color>
+
     <string name="menu_info">Info</string>
 
     <string name="about_sleepEZ"><big><b>What is SleepEZ?</b></big>

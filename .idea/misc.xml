@@ -1,10 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="app/src/main/res/drawable/box.xml" value="0.289" />
+        <entry key="app/src/main/res/drawable/pencil_icon.xml" value="0.289" />
+        <entry key="app/src/main/res/drawable/pin_icon.xml" value="0.289" />
+        <entry key="app/src/main/res/layout/activity_about.xml" value="0.31927083333333334" />
+        <entry key="app/src/main/res/layout/activity_goals_menu.xml" value="0.31927083333333334" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.31927083333333334" />
+        <entry key="app/src/main/res/layout/activity_new_sleep.xml" value="0.31927083333333334" />
+        <entry key="app/src/main/res/layout/activity_stat_menu.xml" value="0.31927083333333334" />
+        <entry key="app/src/main/res/layout/activity_time_picker_dialog.xml" value="0.31927083333333334" />
+      </map>
+    </option>
+  </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.31927083333333334" />
+      </ProjectState>
+    </option>
   </component>
 </project>
