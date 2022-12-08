@@ -5,17 +5,17 @@ import java.util.Date;
 
 public class SleepData {
 
-    private Date date;
-    private Time bedTime;
-    private Time wakeTime;
-    private double sleepQuality;
+    private String date;
+    private SleepTime bedTime;
+    private SleepTime wakeTime;
+    private int sleepQuality;
     private String dreamNotes;
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public SleepData(Date date, Time bedTime, Time wakeTime, double sleepQuality, String dreamNotes) {
+    public SleepData(String date, SleepTime bedTime, SleepTime wakeTime, int sleepQuality, String dreamNotes) {
         this.date = date;
         this.bedTime = bedTime;
         this.wakeTime = wakeTime;
@@ -23,23 +23,23 @@ public class SleepData {
         this.dreamNotes = dreamNotes;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
-    public Time getBedTime() {
+    public SleepTime getBedTime() {
         return bedTime;
     }
 
-    public void setBedTime(Time bedTime) {
+    public void setBedTime(SleepTime bedTime) {
         this.bedTime = bedTime;
     }
 
-    public Time getWakeTime() {
+    public SleepTime getWakeTime() {
         return wakeTime;
     }
 
-    public void setWakeTime(Time wakeTime) {
+    public void setWakeTime(SleepTime wakeTime) {
         this.wakeTime = wakeTime;
     }
 
@@ -47,7 +47,7 @@ public class SleepData {
         return sleepQuality;
     }
 
-    public void setSleepQuality(double sleepQuality) {
+    public void setSleepQuality(int sleepQuality) {
         this.sleepQuality = sleepQuality;
     }
 
