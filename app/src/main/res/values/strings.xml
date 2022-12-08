@@ -53,5 +53,11 @@
     <string name="time_selected"></string>
     <string name="time_current">The Time is:</string>
 
+    <string-array name="stat_select_array">
+        <item>Past Week</item>
+        <item>Past Month</item>
+        <item>All Sleep Data</item>
+    </string-array>
+
 
 </resources>
