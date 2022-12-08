@@ -9,12 +9,14 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import java.io.IOException;
 import java.util.Calendar;
 
 public class NewSleepActivity extends AppCompatActivity {
@@ -35,6 +37,9 @@ public class NewSleepActivity extends AppCompatActivity {
     boolean flag2 = false;
     private RadioButton rb1;
     private RadioGroup rg1;
+    private EditText dreamText;
+    private String dateString;
+    private int ratingLevel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -124,6 +129,8 @@ public class NewSleepActivity extends AppCompatActivity {
             };
 
     private void showDate(int year, int month, int day) {
+
+        dateString = month + "/" + day + "/" + year;
         dateView.setText(new StringBuilder().append(month).append("/")
                 .append(day).append("/").append(year));
     }
@@ -132,8 +139,51 @@ public class NewSleepActivity extends AppCompatActivity {
         rg1 = (RadioGroup) findViewById(R.id.radio_group);
         int selected = rg1.getCheckedRadioButtonId();
         rb1 = (RadioButton)findViewById(selected);
+        ratingLevel = Integer.valueOf(String.valueOf(rb1.getText()));
 
         System.out.println(rb1.getText());
+    }
+
+    public void saveNewSleep(View view) {
+        //bed time
+        try {
+            String tempBedString = String.valueOf(bedTimeSelected.getText());
+            int hour = Integer.valueOf(tempBedString.substring(0,2));
+            int min = Integer.valueOf(tempBedString.substring(3,5));
+            String format = tempBedString.substring(6);
+            SleepTime bedTime = new SleepTime(hour, min, format);
+
+            String tempWakeString = String.valueOf(wakeTimeSelected.getText());
+            int hour1 = Integer.valueOf(tempWakeString.substring(0,2));
+            int min1 = Integer.valueOf(tempWakeString.substring(3,5));
+            String format1 = tempWakeString.substring(6);
+            SleepTime wakeTime = new SleepTime(hour, min, format);
+
+            dreamText = (EditText) findViewById(R.id.edit_dream_text);
+
+            rg1 = (RadioGroup) findViewById(R.id.radio_group);
+            int selected = rg1.getCheckedRadioButtonId();
+            rb1 = (RadioButton)findViewById(selected);
+            ratingLevel = Integer.valueOf(String.valueOf(rb1.getText()));
+
+            String tempDreamString = dreamText.getText().toString();
+
+            if (tempDreamString.equals(null)) {
+                tempDreamString = " ";
+            }
+
+            if (dateString.equals(null) || tempWakeString.equals(null) || tempBedString.equals(null) || (String.valueOf(rb1.getText()).equals(null))) {
+                throw new IOException();
+            } else {
+                SleepData tempSleepData = new SleepData(dateString, bedTime, wakeTime, ratingLevel, tempDreamString);
+                System.out.println("SAVING!\n" + tempSleepData.toString());
+
+                //TO DO
+            }
+
+        } catch (IOException exception){
+            System.out.println(exception.getMessage());
+        }
     }
 
 }

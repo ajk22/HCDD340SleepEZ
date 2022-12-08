@@ -236,14 +236,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="136dp"
-        android:layout_marginEnd="18dp"
+        android:layout_marginTop="24dp"
         android:text="(Optionally) enter notes about dreams you had"
         android:textColor="@color/white"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/set_bed_time2" />
+        app:layout_constraintTop_toBottomOf="@+id/radio_group" />
 
     <EditText
         android:id="@+id/edit_dream_text"
@@ -257,7 +255,8 @@
         android:backgroundTint="@color/dark_blue"
         android:ems="10"
         android:hint="Enter notes here"
-        android:inputType="textPersonName"
+        android:inputType="textLongMessage|textPersonName"
+        android:minHeight="48dp"
         android:paddingLeft="10dp"
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
@@ -274,9 +273,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="158dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="159dp"
-        android:onClick="getRating"
+        android:onClick="saveNewSleep"
         android:text="Save Sleep"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

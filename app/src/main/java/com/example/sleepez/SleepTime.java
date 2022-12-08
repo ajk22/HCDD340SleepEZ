@@ -15,11 +15,15 @@ public class SleepTime {
     @Override
     public String toString() {
         String minString = min + "";
-
+        String hourString = hour + "";
         if (min <= 9) {
             minString = "0" + min;
         }
 
-        return hour + ":" + minString + " " + format;
+        if (hour <= 9) {
+            hourString = "0" + hour;
+        }
+
+        return hourString + ":" + minString + " " + format;
     }
 }
