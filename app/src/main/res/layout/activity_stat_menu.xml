@@ -43,7 +43,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/stat_show_btn" />
 
     <TextView
         android:id="@+id/textView"
@@ -58,11 +58,11 @@
         app:layout_constraintTop_toBottomOf="@+id/stat_label" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/stat_show_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:backgroundTint="#BBBBBB"
+        android:backgroundTint="@color/teal_main"
         android:text="Show"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
