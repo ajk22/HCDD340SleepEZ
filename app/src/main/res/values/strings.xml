@@ -11,4 +11,27 @@
     <string name="new_sleep">New Sleep</string>
     <string name="stats">Statistics</string>
     <string name="mygoals">My Goals</string>
+    <string name="title_activity_goals">GoalsActivity</string>
+
+    <string name="menu_info">Info</string>
+
+    <string name="about_sleepEZ"><big><b>What is SleepEZ?</b></big>
+    \n
+    \n
+        This is an app to help users build better sleep habits by providing useful tools to track and analyze personal sleep data.
+    \n
+    \n
+    <b>Activity Options</b>
+    \n
+    \n
+    \u00A0\u00A0● The <b>New Sleep</b> activity allows you to input new sleep data
+    \n
+    \n
+    \u00A0\u00A0● The <b>Statistics</b> activity allows you to view data about your sleep in multiple ways
+    \n
+    \n
+    \u00A0\u00A0● The <b>My Goals</b> activity allows you to set new goals and keep track of progress
+    \n
+    \n
+    </string>
 </resources>
