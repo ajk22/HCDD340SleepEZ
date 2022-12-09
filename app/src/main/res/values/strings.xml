@@ -66,6 +66,11 @@
     <string name="time_selected"></string>
     <string name="time_current">The Time is:</string>
 
+    <string name="avgBedTime"><u>Average Bed Time</u></string>
+    <string name="avgWakeTime"><u>Average Wake Up Time</u></string>
+    <string name="avgDuration"><u>Average Sleep Duration</u></string>
+    <string name="avgSleepQuality"><u>Average Sleep Quality</u></string>
+
     <string-array name="stat_select_array">
         <item>Past Week</item>
         <item>Past Month</item>
