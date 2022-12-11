@@ -153,7 +153,7 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintTop_toBottomOf="@+id/textView4"
                 card_view:layout_constraintEnd_toEndOf="parent"
-                card_view:layout_constraintHorizontal_bias="0.498"
+
                 card_view:layout_constraintStart_toStartOf="parent" />
 
             <TextView
@@ -167,7 +167,6 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintTop_toBottomOf="@+id/textView6"
                 card_view:layout_constraintEnd_toEndOf="parent"
-                card_view:layout_constraintHorizontal_bias="0.498"
                 card_view:layout_constraintStart_toStartOf="parent" />
 
             <TextView
@@ -181,7 +180,7 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintTop_toBottomOf="@+id/textView8"
                 card_view:layout_constraintEnd_toEndOf="parent"
-                card_view:layout_constraintHorizontal_bias="0.498"
+
                 card_view:layout_constraintStart_toStartOf="parent" />
 
             <TextView
