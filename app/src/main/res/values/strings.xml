@@ -77,5 +77,12 @@
         <item>All Sleep Data</item>
     </string-array>
 
+    <string name="alreadyBedtime">Already\nBedtime?</string>
+    <string name="username">Username</string>
+    <string name="userHint">username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="signUp">Sign Up</string>
+
 
 </resources>
