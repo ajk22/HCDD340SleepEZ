@@ -1,6 +1,8 @@
 package com.example.sleepez;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -11,6 +13,8 @@ public class SleepListActivity extends AppCompatActivity {
 
     private SharedPreferences sharedPreferences;
     private ArrayList<SleepData> SLEEP_LIST;
+    private RecyclerView sleepRecyclerView;
+    private SleepListAdapter sleepAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +24,11 @@ public class SleepListActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sleep_list);
+
+        sleepRecyclerView = findViewById(R.id.sleep_recycler);
+        sleepAdapter = new SleepListAdapter(this,SLEEP_LIST);
+        sleepRecyclerView.setAdapter(sleepAdapter);
+        sleepRecyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
     public ArrayList<SleepData> convertDataStringToList(String listData) {
