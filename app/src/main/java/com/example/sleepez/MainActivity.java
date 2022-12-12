@@ -1,6 +1,7 @@
 package com.example.sleepez;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,17 +14,26 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = "MAIN_ACTIVITY";
 
-    public static final String SHARED_PREF_NAME = "TIME_SELECTOR";
-    public static final String TIME = "TIME_SELECTED";
+    public static final String SHARED_PREF_NAME = "APP_PREFS";
+    public static final String TEMP_TIME = "TIME_SELECTED";
+    public static final String SLEEP_DATA_LIST = "SLEEP_DATA_LIST";
+    SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //TESTING SLEEP DATA
+//        SleepDataList testingList = convertDataStringToList(sharedPreferences.getString(MainActivity.SLEEP_DATA_LIST, null));
+//        System.out.println("TESTING LIST OUTPUT: \n" + testingList.toString());
+
 
         Button statsButton = findViewById(R.id.StatsButton);
         statsButton.setOnClickListener(this);
@@ -31,7 +41,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         newSleepButton.setOnClickListener(this);
         Button goalsButton = findViewById(R.id.MyGoalsButton);
         goalsButton.setOnClickListener(this);
-
     }
 
     @Override

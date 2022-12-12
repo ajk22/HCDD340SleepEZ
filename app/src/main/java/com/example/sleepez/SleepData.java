@@ -10,6 +10,7 @@ public class SleepData {
     private SleepTime wakeTime;
     private int sleepQuality;
     private String dreamNotes;
+    private SleepDuration sleepDuration;
 
     public String getDate() {
         return date;
@@ -21,6 +22,7 @@ public class SleepData {
         this.wakeTime = wakeTime;
         this.sleepQuality = sleepQuality;
         this.dreamNotes = dreamNotes;
+        this.sleepDuration = new SleepDuration(bedTime, wakeTime);
     }
 
     public void setDate(String date) {
@@ -39,12 +41,22 @@ public class SleepData {
         return wakeTime;
     }
 
+    @Override
+    public String toString() {
+        String returnString = getDate() + "," + getBedTime() + "," + getWakeTime() + "," + getSleepQuality() + "," + getDreamNotes() + "," + getSleepDuration().toString() + "-";
+        return returnString;
+    }
+
     public void setWakeTime(SleepTime wakeTime) {
         this.wakeTime = wakeTime;
     }
 
     public double getSleepQuality() {
         return sleepQuality;
+    }
+
+    public SleepDuration getSleepDuration() {
+        return sleepDuration;
     }
 
     public void setSleepQuality(int sleepQuality) {
