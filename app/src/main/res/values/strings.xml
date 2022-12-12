@@ -86,6 +86,10 @@
     <string name="signUp">Sign Up</string>
     <string name="allSleepData">All Sleep Data</string>
     <string name="notes">Notes:</string>
+    <string name="cancel">Cancel</string>
+    <string name="dontHaveAccount">Don\'t have an account?</string>
+    <string name="haveAccount">Already have an account?</string>
+    <string name="createAccount">Create Account</string>
 
 
 </resources>
