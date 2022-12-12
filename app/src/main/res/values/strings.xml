@@ -22,6 +22,7 @@
 
     <!--Button Titles-->
     <string name="newGoal">New Goal</string>
+    <string name="create_goal_btn_text">Create Goal</string>
 
     <!--Colors n' Stuff-->
     <color name="generalBGColor">#606B82</color>
