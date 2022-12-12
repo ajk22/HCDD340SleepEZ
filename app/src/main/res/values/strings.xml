@@ -15,17 +15,24 @@
 
     <!--Activity Headers-->
     <string name="goals_activity_header">My Goals</string>
+    <string name="new_goal_activity_header">New Sleep Goal</string>
 
     <!--Sub-Headers-->
-    <string name="pinned_goal_header">Pinned Goal</string>
-    <string name="other_goals">Other Goals</string>
+    <string name="current_goal_header">Current Goal</string>
 
     <!--Button Titles-->
     <string name="newGoal">New Goal</string>
-    <string name="create_goal_btn_text">Create Goal</string>
+    <string name="set_goal_btn_text">Set Goal</string>
 
     <!--Colors n' Stuff-->
     <color name="generalBGColor">#606B82</color>
+
+    <!--Dialog Box Strings-->
+    <string name="warning_title">Heads Up!</string>
+    <string name="warning_message">Creating a new goal will remove your current one, as you can only
+        have one active goal at a time</string>
+    <string name="warning_positive">Set New Goal</string>
+    <string name="warning_negative">Cancel</string>
 
     <string name="menu_info">Info</string>
 
