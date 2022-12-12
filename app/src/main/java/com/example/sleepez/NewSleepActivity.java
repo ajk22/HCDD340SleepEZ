@@ -195,20 +195,28 @@ public class NewSleepActivity extends AppCompatActivity {
                 System.out.println(sharedPreferences.getString(MainActivity.SLEEP_DATA_LIST, null));
                 SleepData tempSleepData = new SleepData(dateString, bedTime, wakeTime, ratingLevel, tempDreamString);
                 String tempPrefString = sharedPreferences.getString(MainActivity.SLEEP_DATA_LIST, null);
-                if (tempPrefString.equals("empty")) {
-                    System.out.println("Testing IS EMPTY");
-                    tempPrefString = tempSleepData.toString();
+
+                try {
+                    if (tempPrefString.equals("empty")) {
+                        System.out.println("Testing IS EMPTY");
+                        tempPrefString = tempSleepData.toString();
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putString(MainActivity.SLEEP_DATA_LIST, tempPrefString);
+                        editor.apply();
+                        finish();
+                    } else {
+                        tempPrefString = tempPrefString + tempSleepData.toString();
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putString(MainActivity.SLEEP_DATA_LIST, tempPrefString);
+                        editor.apply();
+                        finish();
+                    }
+                } catch (NullPointerException ex) {
                     SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putString(MainActivity.SLEEP_DATA_LIST, tempPrefString);
+                    editor.putString(MainActivity.SLEEP_DATA_LIST, "empty");
                     editor.apply();
-                    finish();
-                } else {
-                    tempPrefString = tempPrefString + tempSleepData.toString();
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putString(MainActivity.SLEEP_DATA_LIST, tempPrefString);
-                    editor.apply();
-                    finish();
                 }
+
 
                 System.out.println("DATA AFTER SAVING...");
                 System.out.println(sharedPreferences.getString(MainActivity.SLEEP_DATA_LIST, null));
