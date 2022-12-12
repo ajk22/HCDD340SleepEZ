@@ -85,6 +85,7 @@
     <string name="login">Login</string>
     <string name="signUp">Sign Up</string>
     <string name="allSleepData">All Sleep Data</string>
+    <string name="notes">Notes:</string>
 
 
 </resources>
