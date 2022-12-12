@@ -59,6 +59,16 @@ public class NewSleepActivity extends AppCompatActivity {
 //        SharedPreferences.Editor editor = sharedPreferences.edit();
 //        editor.putString(MainActivity.SLEEP_DATA_LIST, "empty");
 //        editor.apply();
+        try {
+            String tempPrefString = sharedPreferences.getString(MainActivity.SLEEP_DATA_LIST, null);
+            if (tempPrefString.equals("empty")) {
+                System.out.println("Testing for empty list");
+            }
+        } catch (NullPointerException ex) {
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString(MainActivity.SLEEP_DATA_LIST, "empty");
+            editor.apply();
+        }
 
         dateView = (TextView) findViewById(R.id.date_selected_text);
         wakeTimeSelected = (TextView) findViewById(R.id.wake_time_selected);
@@ -196,7 +206,6 @@ public class NewSleepActivity extends AppCompatActivity {
                 SleepData tempSleepData = new SleepData(dateString, bedTime, wakeTime, ratingLevel, tempDreamString);
                 String tempPrefString = sharedPreferences.getString(MainActivity.SLEEP_DATA_LIST, null);
 
-                try {
                     if (tempPrefString.equals("empty")) {
                         System.out.println("Testing IS EMPTY");
                         tempPrefString = tempSleepData.toString();
@@ -211,12 +220,6 @@ public class NewSleepActivity extends AppCompatActivity {
                         editor.apply();
                         finish();
                     }
-                } catch (NullPointerException ex) {
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putString(MainActivity.SLEEP_DATA_LIST, "empty");
-                    editor.apply();
-                }
-
 
                 System.out.println("DATA AFTER SAVING...");
                 System.out.println(sharedPreferences.getString(MainActivity.SLEEP_DATA_LIST, null));
