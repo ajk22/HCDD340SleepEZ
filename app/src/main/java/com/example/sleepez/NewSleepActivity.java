@@ -48,6 +48,18 @@ public class NewSleepActivity extends AppCompatActivity {
 
         sharedPreferences = getSharedPreferences(MainActivity.SHARED_PREF_NAME, MODE_PRIVATE);
 
+        //TESTING persistent data
+//        SleepDataList testList = convertDataStringToList(sharedPreferences.getString(MainActivity.SLEEP_DATA_LIST, null));
+//        System.out.println("TESTING PERSISTENT DATA 1...\n");
+//        for (int i = 0; i < testList.getSleepDataArrayList().size(); i++) {
+//            System.out.println(testList.getSleepDataArrayList().get(i).toString());
+//        }
+
+//        //UNCOMMENT and run to clear the data
+//        SharedPreferences.Editor editor = sharedPreferences.edit();
+//        editor.putString(MainActivity.SLEEP_DATA_LIST, "empty");
+//        editor.apply();
+
         dateView = (TextView) findViewById(R.id.date_selected_text);
         wakeTimeSelected = (TextView) findViewById(R.id.wake_time_selected);
         wakeTimeSelected.setText("");
@@ -60,6 +72,7 @@ public class NewSleepActivity extends AppCompatActivity {
         day = calendar.get(Calendar.DAY_OF_MONTH);
         showDate(year, month+1, day);
     }
+
 
     @SuppressWarnings("deprecation")
     public void setDate(View view) {
@@ -75,16 +88,16 @@ public class NewSleepActivity extends AppCompatActivity {
         if (flag2 == true) {
             if (flag == false) {
                 //wake time
-                System.out.println(sharedPreferences.getString(MainActivity.TIME, null));
+                System.out.println(sharedPreferences.getString(MainActivity.TEMP_TIME, null));
 
-                wakeTimeSelected.setText(sharedPreferences.getString(MainActivity.TIME, null));
+                wakeTimeSelected.setText(sharedPreferences.getString(MainActivity.TEMP_TIME, null));
 
                 flag2 = false;
             } else if (flag) {
                 //bed time
-                System.out.println(sharedPreferences.getString(MainActivity.TIME, null));
+                System.out.println(sharedPreferences.getString(MainActivity.TEMP_TIME, null));
 
-                bedTimeSelected.setText(sharedPreferences.getString(MainActivity.TIME, null));
+                bedTimeSelected.setText(sharedPreferences.getString(MainActivity.TEMP_TIME, null));
 
                 flag2 = false;
             }
@@ -157,7 +170,7 @@ public class NewSleepActivity extends AppCompatActivity {
             int hour1 = Integer.valueOf(tempWakeString.substring(0,2));
             int min1 = Integer.valueOf(tempWakeString.substring(3,5));
             String format1 = tempWakeString.substring(6);
-            SleepTime wakeTime = new SleepTime(hour, min, format);
+            SleepTime wakeTime = new SleepTime(hour1, min1, format1);
 
             dreamText = (EditText) findViewById(R.id.edit_dream_text);
 
@@ -168,22 +181,87 @@ public class NewSleepActivity extends AppCompatActivity {
 
             String tempDreamString = dreamText.getText().toString();
 
-            if (tempDreamString.equals(null)) {
-                tempDreamString = " ";
+            if (tempDreamString.isEmpty()) {
+                tempDreamString = "No Dream Entered";
             }
 
             if (dateString.equals(null) || tempWakeString.equals(null) || tempBedString.equals(null) || (String.valueOf(rb1.getText()).equals(null))) {
                 throw new IOException();
+            } else if (tempDreamString.contains("-") || tempDreamString.contains(",")){
+                //need to make sure that dream string does not contain the character which is used to split
+                throw new IOException();
             } else {
+                System.out.println("DATA BEFORE SAVING...");
+                System.out.println(sharedPreferences.getString(MainActivity.SLEEP_DATA_LIST, null));
                 SleepData tempSleepData = new SleepData(dateString, bedTime, wakeTime, ratingLevel, tempDreamString);
-                System.out.println("SAVING!\n" + tempSleepData.toString());
+                String tempPrefString = sharedPreferences.getString(MainActivity.SLEEP_DATA_LIST, null);
+                if (tempPrefString.equals("empty")) {
+                    System.out.println("Testing IS EMPTY");
+                    tempPrefString = tempSleepData.toString();
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString(MainActivity.SLEEP_DATA_LIST, tempPrefString);
+                    editor.apply();
+                    finish();
+                } else {
+                    tempPrefString = tempPrefString + tempSleepData.toString();
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString(MainActivity.SLEEP_DATA_LIST, tempPrefString);
+                    editor.apply();
+                    finish();
+                }
 
-                //TO DO
+                System.out.println("DATA AFTER SAVING...");
+                System.out.println(sharedPreferences.getString(MainActivity.SLEEP_DATA_LIST, null));
             }
-
-        } catch (IOException exception){
+        }
+        catch (IOException exception){
+            //TO DO
+            //need to pop up an error message... "a required input was left blank, please provide input and try again"
             System.out.println(exception.getMessage());
         }
+        catch (IndexOutOfBoundsException exception) {
+            //TO DO
+            //need to pop up an error message... "a required input was left blank, please provide input and try again"
+            System.out.println(exception.getMessage());
+        }
+    }
+
+    public SleepDataList convertDataStringToList(String listData) {
+        String[] sleepDataObjects = listData.split("-");
+        System.out.println("TESTING PERSISTENT DATA 2...\n");
+        System.out.println(sleepDataObjects[0]);
+        SleepDataList tempDataList = new SleepDataList();
+
+        for(int i = 0; i < sleepDataObjects.length; i++) {
+            String tempObjectString = sleepDataObjects[i];
+            String[] tempObjectStringValues = tempObjectString.split(",");
+
+            String tempDate = tempObjectStringValues[0];
+
+            String tempBedTime = tempObjectStringValues[1];
+            int hour = Integer.valueOf(tempBedTime.substring(0,2));
+            int min = Integer.valueOf(tempBedTime.substring(3,5));
+            String format = tempBedTime.substring(6);
+            SleepTime bedTime = new SleepTime(hour, min, format);
+
+            String tempWakeTime = tempObjectStringValues[2];
+            int hour1 = Integer.valueOf(tempWakeTime.substring(0,2));
+            int min1 = Integer.valueOf(tempWakeTime.substring(3,5));
+            String format1 = tempWakeTime.substring(6);
+            SleepTime wakeTime = new SleepTime(hour1, min1, format1);
+
+            String tempSleepQuality = tempObjectStringValues[3];
+            System.out.println(tempSleepQuality);
+            double sleepQualityDouble = Double.parseDouble(tempSleepQuality);
+            int sleepQualityInt = (int) sleepQualityDouble;
+
+
+            String tempDreamNotes = tempObjectStringValues[4];
+
+            tempDataList.addToList(new SleepData(tempDate, bedTime, wakeTime, sleepQualityInt, tempDreamNotes));
+        }
+
+        return tempDataList;
     }
 
 }

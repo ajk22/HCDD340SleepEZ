@@ -64,7 +64,7 @@ public class TimePickerDialog extends Activity {
 
         time = new SleepTime(hour, min, format);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString(MainActivity.TIME, time.toString());
+        editor.putString(MainActivity.TEMP_TIME, time.toString());
         editor.apply();
         finish();
     }

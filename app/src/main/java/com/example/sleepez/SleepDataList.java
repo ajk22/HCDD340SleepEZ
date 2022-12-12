@@ -25,20 +25,4 @@ public class SleepDataList {
         sleepDataArrayList.add(sleepData);
     }
 
-    public SleepData findInList(SleepData sleepData) {
-
-        SleepData returnItem = null;
-
-        for (int i = 0; i < sleepDataArrayList.size(); i++) {
-            if (sleepData.equals(sleepDataArrayList.get(i))) {
-                returnItem = sleepDataArrayList.get(i);
-            }
-        }
-
-        if (returnItem == null) {
-            Log.d(TAG, "Error: No object found in list");
-        }
-
-        return returnItem;
-    }
 }
