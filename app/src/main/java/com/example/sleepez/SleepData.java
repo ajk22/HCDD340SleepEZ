@@ -51,7 +51,7 @@ public class SleepData {
         this.wakeTime = wakeTime;
     }
 
-    public double getSleepQuality() {
+    public int getSleepQuality() {
         return sleepQuality;
     }
 

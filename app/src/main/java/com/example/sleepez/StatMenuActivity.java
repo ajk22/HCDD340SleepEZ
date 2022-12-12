@@ -2,6 +2,7 @@ package com.example.sleepez;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -34,6 +35,11 @@ public class StatMenuActivity extends AppCompatActivity implements View.OnClickL
             Spinner spinner = findViewById(R.id.stat_spinner);
             String range = (String) spinner.getSelectedItem();
             Log.d("Stat_Test", "Selected range: " + range);
+
+            if(range.equals("All Sleep Data")){
+                Intent allSleepIntent = new Intent(this, SleepListActivity.class);
+                startActivity(allSleepIntent);
+            }
         }
     }
 }
