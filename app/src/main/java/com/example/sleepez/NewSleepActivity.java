@@ -59,6 +59,16 @@ public class NewSleepActivity extends AppCompatActivity {
 //        SharedPreferences.Editor editor = sharedPreferences.edit();
 //        editor.putString(MainActivity.SLEEP_DATA_LIST, "empty");
 //        editor.apply();
+        try {
+            String tempPrefString = sharedPreferences.getString(MainActivity.SLEEP_DATA_LIST, null);
+            if (tempPrefString.equals("empty")) {
+                System.out.println("Testing for empty list");
+            }
+        } catch (NullPointerException ex) {
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString(MainActivity.SLEEP_DATA_LIST, "empty");
+            editor.apply();
+        }
 
         dateView = (TextView) findViewById(R.id.date_selected_text);
         wakeTimeSelected = (TextView) findViewById(R.id.wake_time_selected);
@@ -196,7 +206,6 @@ public class NewSleepActivity extends AppCompatActivity {
                 SleepData tempSleepData = new SleepData(dateString, bedTime, wakeTime, ratingLevel, tempDreamString);
                 String tempPrefString = sharedPreferences.getString(MainActivity.SLEEP_DATA_LIST, null);
 
-                try {
                     if (tempPrefString.equals("empty")) {
                         System.out.println("Testing IS EMPTY");
                         tempPrefString = tempSleepData.toString();
@@ -211,12 +220,6 @@ public class NewSleepActivity extends AppCompatActivity {
                         editor.apply();
                         finish();
                     }
-                } catch (NullPointerException ex) {
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putString(MainActivity.SLEEP_DATA_LIST, "empty");
-                    editor.apply();
-                }
-
 
                 System.out.println("DATA AFTER SAVING...");
                 System.out.println(sharedPreferences.getString(MainActivity.SLEEP_DATA_LIST, null));
@@ -232,44 +235,6 @@ public class NewSleepActivity extends AppCompatActivity {
             //need to pop up an error message... "a required input was left blank, please provide input and try again"
             System.out.println(exception.getMessage());
         }
-    }
-
-    public SleepDataList convertDataStringToList(String listData) {
-        String[] sleepDataObjects = listData.split("-");
-        System.out.println("TESTING PERSISTENT DATA 2...\n");
-        System.out.println(sleepDataObjects[0]);
-        SleepDataList tempDataList = new SleepDataList();
-
-        for(int i = 0; i < sleepDataObjects.length; i++) {
-            String tempObjectString = sleepDataObjects[i];
-            String[] tempObjectStringValues = tempObjectString.split(",");
-
-            String tempDate = tempObjectStringValues[0];
-
-            String tempBedTime = tempObjectStringValues[1];
-            int hour = Integer.valueOf(tempBedTime.substring(0,2));
-            int min = Integer.valueOf(tempBedTime.substring(3,5));
-            String format = tempBedTime.substring(6);
-            SleepTime bedTime = new SleepTime(hour, min, format);
-
-            String tempWakeTime = tempObjectStringValues[2];
-            int hour1 = Integer.valueOf(tempWakeTime.substring(0,2));
-            int min1 = Integer.valueOf(tempWakeTime.substring(3,5));
-            String format1 = tempWakeTime.substring(6);
-            SleepTime wakeTime = new SleepTime(hour1, min1, format1);
-
-            String tempSleepQuality = tempObjectStringValues[3];
-            System.out.println(tempSleepQuality);
-            double sleepQualityDouble = Double.parseDouble(tempSleepQuality);
-            int sleepQualityInt = (int) sleepQualityDouble;
-
-
-            String tempDreamNotes = tempObjectStringValues[4];
-
-            tempDataList.addToList(new SleepData(tempDate, bedTime, wakeTime, sleepQualityInt, tempDreamNotes));
-        }
-
-        return tempDataList;
     }
 
 }
