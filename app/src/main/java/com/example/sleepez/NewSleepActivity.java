@@ -115,6 +115,9 @@ public class NewSleepActivity extends AppCompatActivity {
             Intent aboutIntent = new Intent(this, LoginActivity.class);
             startActivity(aboutIntent);
             return true;
+        }else if (menuId == android.R.id.home){
+            this.finish();
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
