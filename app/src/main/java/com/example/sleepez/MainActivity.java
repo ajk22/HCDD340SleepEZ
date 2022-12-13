@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public static final String SHARED_PREF_NAME = "APP_PREFS";
     public static final String TEMP_TIME = "TIME_SELECTED";
+    public static final String USERNAME_KEY = "USERNAME";
+    public static final String PASSWORD_KEY = "PASSWORD";
     public static final String SLEEP_DATA_LIST = "SLEEP_DATA_LIST";
     SharedPreferences sharedPreferences;
 
