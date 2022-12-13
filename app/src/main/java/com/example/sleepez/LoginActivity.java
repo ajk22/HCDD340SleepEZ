@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.textfield.TextInputLayout;
 
 public class LoginActivity extends AppCompatActivity implements  View.OnClickListener {
     private SharedPreferences sharedPreferences;
@@ -44,7 +45,7 @@ public class LoginActivity extends AppCompatActivity implements  View.OnClickLis
             EditText txtPassword = findViewById(R.id.passwordInput);
             String password = txtPassword.getText().toString();
 
-            System.out.println("password: " + password + " username: " + username);
+            //System.out.println("password: " + password + " username: " + username);
 
             String defVal = "";
 
@@ -54,6 +55,10 @@ public class LoginActivity extends AppCompatActivity implements  View.OnClickLis
 
                 Intent mainMenuIntent = new Intent(this, MainActivity.class);
                 startActivity(mainMenuIntent);
+            }
+            else{
+                TextInputLayout til = (TextInputLayout) findViewById(R.id.usernameInputLayout);
+                til.setError("Username or Password is incorrect.");
             }
 
 
