@@ -19,6 +19,8 @@ public class NewGoalActivity extends AppCompatActivity implements View.OnClickLi
 
         Button newGoal = findViewById(R.id.set_goal_btn_id);
         newGoal.setOnClickListener(this);
+
+        sharedPrefs = getSharedPreferences(MainActivity.SHARED_PREF_NAME, MODE_PRIVATE);
     }
 
     @Override
