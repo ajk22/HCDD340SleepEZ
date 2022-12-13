@@ -25,6 +25,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public static final String USERNAME_KEY = "USERNAME";
     public static final String PASSWORD_KEY = "PASSWORD";
     public static final String SLEEP_DATA_LIST = "SLEEP_DATA_LIST";
+    public static final String GOAL_TITLE = "GOAL_TITLE";
+    public static final String GOAL_DESCRIPTION = "GOAL_DESCRIPTION";
     SharedPreferences sharedPreferences;
 
     @Override
@@ -44,7 +46,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //Testing to see if lists has been created yet...
         //If not it, we must add some sample data
         sharedPreferences = getSharedPreferences(this.SHARED_PREF_NAME, MODE_PRIVATE);
+        testIfNewDevice();
 
+        Button statsButton = findViewById(R.id.StatsButton);
+        statsButton.setOnClickListener(this);
+        Button newSleepButton = findViewById(R.id.newSleepButton);
+        newSleepButton.setOnClickListener(this);
+        Button goalsButton = findViewById(R.id.MyGoalsButton);
+        goalsButton.setOnClickListener(this);
+    }
+
+    private void testIfNewDevice() {
         try {
             String tempPrefString = sharedPreferences.getString(MainActivity.SLEEP_DATA_LIST, null);
             if (tempPrefString.equals("empty")) {
@@ -88,15 +100,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     "12/10/2022,09:55 PM,05:45 AM,5,No Dream Entered,07:50-" +
                     "12/11/2022,10:31 PM,09:31 AM,5,Nightmare about java code,11:00-" +
                     "12/12/2022,11:25 PM,07:25 AM,4,Aliens and unicorns,08:00-");
+            editor2.putString(MainActivity.GOAL_TITLE, " ");
+            editor2.putString(MainActivity.GOAL_DESCRIPTION, " ");
             editor2.apply();
         }
-
-        Button statsButton = findViewById(R.id.StatsButton);
-        statsButton.setOnClickListener(this);
-        Button newSleepButton = findViewById(R.id.newSleepButton);
-        newSleepButton.setOnClickListener(this);
-        Button goalsButton = findViewById(R.id.MyGoalsButton);
-        goalsButton.setOnClickListener(this);
     }
 
     @Override

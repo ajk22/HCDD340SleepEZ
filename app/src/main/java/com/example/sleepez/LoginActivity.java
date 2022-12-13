@@ -1,7 +1,6 @@
 package com.example.sleepez;
 
 import static com.example.sleepez.MainActivity.PASSWORD_KEY;
-import static com.example.sleepez.MainActivity.SHARED_PREF_NAME;
 import static com.example.sleepez.MainActivity.USERNAME_KEY;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,7 +11,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class LoginActivity extends AppCompatActivity implements  View.OnClickListener {
@@ -39,7 +37,7 @@ public class LoginActivity extends AppCompatActivity implements  View.OnClickLis
     public void onClick(View view) {
         int id = view.getId();
         if (id == R.id.loginBtn){
-            EditText txtUsername = findViewById(R.id.usernameInput);
+            EditText txtUsername = findViewById(R.id.goalTitleInput);
             String username = txtUsername.getText().toString();
 
             EditText txtPassword = findViewById(R.id.passwordInput);
