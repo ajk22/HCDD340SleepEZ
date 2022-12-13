@@ -102,7 +102,6 @@ public class StatMenuActivity extends AppCompatActivity implements View.OnClickL
 
     public SleepDataList convertDataStringToList(String listData) {
         String[] sleepDataObjects = listData.split("-");
-        System.out.println(sleepDataObjects[0]);
         SleepDataList tempDataList = new SleepDataList();
 
         for(int i = 0; i < sleepDataObjects.length; i++) {
