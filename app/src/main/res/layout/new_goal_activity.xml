@@ -5,19 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/generalBGColor"
-    tools:context=".GoalsMenuActivity">
-
-    <Button
-        android:id="@+id/new_goal_btn_id"
-        android:layout_width="243dp"
-        android:layout_height="58dp"
-        android:layout_marginBottom="32dp"
-        android:text="@string/newGoal"
-        android:textSize="24sp"
-        app:icon="@drawable/pencil_icon"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+    tools:context=".NewGoalActivity">
 
     <TextView
         android:id="@+id/goals_activity_header_id"
@@ -25,7 +13,7 @@
         android:layout_height="46dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
-        android:text="@string/mygoals"
+        android:text="@string/new_goal_activity_header"
         android:textAlignment="textStart"
         android:textColor="@color/white"
         android:textSize="34sp"
@@ -53,32 +41,20 @@
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="16dp"
         android:background="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/new_goal_btn_id"
+        app:layout_constraintBottom_toTopOf="@+id/set_goal_btn_id"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/other_goals_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/current_goal_header"
-        android:textColor="@color/white"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/goals_box_id"
-        app:layout_constraintStart_toStartOf="@+id/goals_box_id" />
-
-    <TextView
-        android:id="@+id/goals_box_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:width="300dp"
-        android:height="315dp"
-        android:background="@drawable/box"
-        app:layout_constraintBottom_toTopOf="@+id/horizontal_line_bottom_id"
+    <Button
+        android:id="@+id/set_goal_btn_id"
+        android:layout_width="243dp"
+        android:layout_height="58dp"
+        android:layout_marginBottom="32dp"
+        android:text="@string/set_goal_btn_text"
+        android:textSize="24sp"
+        app:icon="@drawable/pencil_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

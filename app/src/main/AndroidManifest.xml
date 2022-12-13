@@ -11,6 +11,13 @@
         android:theme="@style/Theme.SleepEZ"
         tools:targetApi="31">
         <activity
+            android:name=".SignUpActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".SleepListAdapter"
             android:exported="false">
             <meta-data
@@ -40,6 +47,13 @@
         </activity>
         <activity
             android:name=".GoalsMenuActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".NewGoalActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

@@ -1,11 +1,14 @@
 package com.example.sleepez;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.MenuItem;
 
 import java.util.ArrayList;
 
@@ -29,6 +32,20 @@ public class SleepListActivity extends AppCompatActivity {
         sleepAdapter = new SleepListAdapter(this,SLEEP_LIST);
         sleepRecyclerView.setAdapter(sleepAdapter);
         sleepRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        ActionBar actionBar = getSupportActionBar();
+        // showing the back button in action bar
+        actionBar.setDisplayHomeAsUpEnabled(true);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     public ArrayList<SleepData> convertDataStringToList(String listData) {
