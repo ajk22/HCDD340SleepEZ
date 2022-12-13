@@ -42,29 +42,33 @@
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/goal_title_input_id"
-        app:layout_constraintStart_toStartOf="@+id/goal_title_input_id" />
+        app:layout_constraintStart_toStartOf="@+id/goal_title_input_id"
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/goal_title_input_id"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:minWidth="300dp"
         app:boxBackgroundColor="@color/white"
         app:endIconMode="clear_text"
         app:hintEnabled="false"
-        android:minWidth="300dp"
         app:layout_constraintBottom_toTopOf="@+id/set_goal_desc_header_id"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view">
+        app:layout_constraintTop_toBottomOf="@+id/set_goal_title_header_id">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/goalTitleInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="@string/set_goal_title"
             android:inputType="text"
             android:maxLines="1"
-            android:hint="@string/set_goal_title"
             android:textColorHint="#B8B8B8" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -72,26 +76,30 @@
         android:id="@+id/set_goal_desc_header_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:text="@string/set_goal_desc_header"
         android:textColor="@color/white"
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/goal_desc_input_id"
-        app:layout_constraintStart_toStartOf="@+id/goal_desc_input_id" />
+        app:layout_constraintStart_toStartOf="@+id/goal_desc_input_id"
+        app:layout_constraintTop_toBottomOf="@+id/goal_title_input_id" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/goal_desc_input_id"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="100dp"
+        android:layout_marginTop="5dp"
         android:minWidth="300dp"
         app:boxBackgroundColor="@color/white"
         app:endIconMode="clear_text"
         app:hintEnabled="false"
         app:layout_constraintBottom_toTopOf="@+id/horizontal_line_bottom_id"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/set_goal_desc_header_id">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/goalDescriptionInput"

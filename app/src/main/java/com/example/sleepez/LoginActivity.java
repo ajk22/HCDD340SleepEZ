@@ -38,11 +38,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     @Override
-    public <T extends View> T findViewById(int id) {
-        return super.findViewById(id);
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
@@ -54,13 +49,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         sharedPreferences = getSharedPreferences(MainActivity.SHARED_PREF_NAME, MODE_PRIVATE);
         findViewById(R.id.passwordInput).setOnFocusChangeListener(this);
         findViewById(R.id.usernameInput).setOnFocusChangeListener(this);
-    }
-
-    void saveUserInformation(String username, String password) {
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString(USERNAME_KEY, username);
-        editor.putString(PASSWORD_KEY,password);
-        editor.apply();
     }
 
     @Override

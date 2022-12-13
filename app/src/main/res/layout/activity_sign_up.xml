@@ -63,7 +63,6 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="50dp"
         app:boxBackgroundColor="@color/white"
-        app:endIconMode="clear_text"
         app:hintEnabled="false"
         app:layout_constraintBottom_toTopOf="@+id/textView13"
         app:layout_constraintEnd_toEndOf="parent"
@@ -77,8 +76,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/username"
-            android:singleLine="true"
             android:imeOptions="actionNext"
+            android:singleLine="true"
+            android:textColor="@color/grey_background"
             android:textColorHint="#B8B8B8" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -106,7 +106,8 @@
             android:layout_height="wrap_content"
             android:hint="@string/password"
             android:imeOptions="actionDone"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:textColor="@color/grey_background" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView

@@ -107,6 +107,8 @@
     <string name="createAccount">Create Account</string>
     <string name="accountSuccess">Account Successfully Created!</string>
     <string name="logout">Log Out</string>
+    <string name="setgoal">Set A Goal</string>
+    <string name="creategoal">Create new goal by clicking the "New Goal" button</string>
 
 
 </resources>

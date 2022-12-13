@@ -44,10 +44,8 @@
         android:layout_marginStart="50dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="50dp"
-        android:imeOptions="actionNext"
         app:errorEnabled="true"
         app:boxBackgroundColor="@color/white"
-        app:endIconMode="clear_text"
         app:hintEnabled="false"
         app:layout_constraintBottom_toTopOf="@+id/textView7"
         app:layout_constraintEnd_toEndOf="parent"
@@ -61,9 +59,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/username"
-            android:maxLines="1"
             android:inputType="text"
             android:imeOptions="actionNext"
+            android:maxLines="1"
+            android:textColor="@color/grey_background"
             android:textColorHint="#B8B8B8" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -91,7 +90,8 @@
             android:layout_height="wrap_content"
             android:hint="@string/password"
             android:imeOptions="actionDone"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:textColor="@color/grey_background" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
