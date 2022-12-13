@@ -19,7 +19,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginBtn3"
+        app:layout_constraintTop_toBottomOf="@+id/signUpBtn"
         app:layout_constraintVertical_bias="0.65999997" />
 
     <TextView
@@ -38,7 +38,7 @@
         app:layout_constraintTop_toTopOf="@+id/textView14" />
 
     <Button
-        android:id="@+id/loginBtn3"
+        android:id="@+id/signUpBtn"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginStart="80dp"
@@ -55,7 +55,7 @@
         app:layout_constraintVertical_chainStyle="packed" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
+        android:id="@+id/usernameInputLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -73,6 +73,7 @@
         app:startIconDrawable="@drawable/ic_baseline_person_24">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/signupUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/username"
@@ -91,7 +92,7 @@
         app:boxBackgroundColor="@color/white"
         app:endIconMode="password_toggle"
         app:hintEnabled="false"
-        app:layout_constraintBottom_toTopOf="@+id/loginBtn3"
+        app:layout_constraintBottom_toTopOf="@+id/signUpBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -99,6 +100,7 @@
         app:startIconDrawable="@drawable/ic_baseline_lock_24">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/signupPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/password"
@@ -112,8 +114,8 @@
         android:text="@string/username"
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
-        app:layout_constraintStart_toStartOf="@+id/textInputLayout"
+        app:layout_constraintBottom_toTopOf="@+id/usernameInputLayout"
+        app:layout_constraintStart_toStartOf="@+id/usernameInputLayout"
         app:layout_constraintTop_toBottomOf="@+id/view5"
         app:layout_constraintVertical_bias="0.4"
         app:layout_constraintVertical_chainStyle="packed" />
@@ -128,7 +130,7 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/textInputLayout2"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout2"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/usernameInputLayout" />
 
     <TextView
         android:id="@+id/new_sleep_label3"

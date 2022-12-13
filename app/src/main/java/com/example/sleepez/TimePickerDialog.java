@@ -38,9 +38,7 @@ public class TimePickerDialog extends Activity {
         time = new SleepTime(Calendar.HOUR_OF_DAY, Calendar.MINUTE, "");
 
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
-        System.out.println(hour);
         int min = calendar.get(Calendar.MINUTE);
-        System.out.println(min);
     }
 
     public void setTime(View view) {

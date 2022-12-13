@@ -35,14 +35,13 @@ public class SleepDuration {
     private int calculateHourDuration(SleepTime bedTime, SleepTime wakeTime) {
 
         int result;
-
-        if (bedTime.getFormat().equals("AM")) {
+        if (bedTime.getHour() == 12) {
+            result = wakeTime.getHour();
+        } else if (bedTime.getFormat().equals("AM") && bedTime.getHour() != 12) {
             result = wakeTime.getHour() - bedTime.getHour();
         } else {
-            System.out.println("Testing! " + bedTime.getHour());
             int temp = 12 - bedTime.getHour();
             result = temp + wakeTime.getHour();
-            System.out.println("Testing result! " + result);
         }
 
         return result;
