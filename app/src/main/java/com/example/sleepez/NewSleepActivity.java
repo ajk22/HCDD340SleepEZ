@@ -9,6 +9,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
@@ -80,12 +81,37 @@ public class NewSleepActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                this.finish();
-                return true;
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int menuId = item.getItemId();
+
+        if (menuId == R.id.menuNewSleep) {
+            Intent aboutIntent = new Intent(this, AboutActivity.class);
+            startActivity(aboutIntent);
+            return true;
+        } else if (menuId == R.id.menuNewSleep) {
+            Intent aboutIntent = new Intent(this, NewSleepActivity.class);
+            startActivity(aboutIntent);
+            return true;
+        } else if (menuId == R.id.menuStats) {
+            Intent aboutIntent = new Intent(this, StatMenuActivity.class);
+            startActivity(aboutIntent);
+            return true;
+        } else if (menuId == R.id.menuGoals) {
+            Intent aboutIntent = new Intent(this, GoalsMenuActivity.class);
+            startActivity(aboutIntent);
+            return true;
+        } else if (menuId == R.id.menuLogOut) {
+            Intent aboutIntent = new Intent(this, LoginActivity.class);
+            startActivity(aboutIntent);
+            return true;
         }
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -199,7 +225,6 @@ public class NewSleepActivity extends AppCompatActivity {
             if (tempDreamString.isEmpty()) {
                 tempDreamString = "No Dream Entered";
             }
-
             if (dateString.equals(null) || tempWakeString.equals(null) || tempBedString.equals(null) || (String.valueOf(rb1.getText()).equals(null))) {
                 throw new IOException();
             } else if (tempDreamString.contains("-") || tempDreamString.contains(",")){

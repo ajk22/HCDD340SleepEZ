@@ -107,26 +107,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int menuId = item.getItemId();
-
-        if (menuId == R.id.menu_info) {
-            Intent aboutIntent = new Intent(this, AboutActivity.class);
-            startActivity(aboutIntent);
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-
-    @Override
     public void onClick(View view) {
         if (view.equals(findViewById(R.id.StatsButton))) {
 

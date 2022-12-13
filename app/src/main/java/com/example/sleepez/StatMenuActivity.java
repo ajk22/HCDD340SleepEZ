@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -40,15 +41,40 @@ public class StatMenuActivity extends AppCompatActivity implements View.OnClickL
         ActionBar actionBar = getSupportActionBar();
         // showing the back button in action bar
         actionBar.setDisplayHomeAsUpEnabled(true);
-}
+    }
 
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                this.finish();
-                return true;
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int menuId = item.getItemId();
+
+        if (menuId == R.id.menuNewSleep) {
+            Intent aboutIntent = new Intent(this, AboutActivity.class);
+            startActivity(aboutIntent);
+            return true;
+        } else if (menuId == R.id.menuNewSleep) {
+            Intent aboutIntent = new Intent(this, NewSleepActivity.class);
+            startActivity(aboutIntent);
+            return true;
+        } else if (menuId == R.id.menuStats) {
+            Intent aboutIntent = new Intent(this, StatMenuActivity.class);
+            startActivity(aboutIntent);
+            return true;
+        } else if (menuId == R.id.menuGoals) {
+            Intent aboutIntent = new Intent(this, GoalsMenuActivity.class);
+            startActivity(aboutIntent);
+            return true;
+        } else if (menuId == R.id.menuLogOut) {
+            Intent aboutIntent = new Intent(this, LoginActivity.class);
+            startActivity(aboutIntent);
+            return true;
         }
+
         return super.onOptionsItemSelected(item);
     }
 
