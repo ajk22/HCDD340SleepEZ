@@ -2,16 +2,19 @@ package com.example.sleepez;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -19,6 +22,8 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
+import com.google.android.material.snackbar.Snackbar;
 
 import java.io.IOException;
 import java.util.Calendar;
@@ -241,23 +246,53 @@ public class NewSleepActivity extends AppCompatActivity {
                         editor.putString(MainActivity.SLEEP_DATA_LIST, tempPrefString);
                         editor.apply();
                         finish();
+
+                        AlertDialog.Builder d = new AlertDialog.Builder(this);
+                        d.setTitle("Sleep Successfully Added!");
+                        d.setMessage("A new sleep on " + dateString + " has been added!");
+                        d.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int i) {
+                                finish();
+                            }
+                        });
+                        d.show();
+
+
                     } else {
                         tempPrefString = tempPrefString + tempSleepData.toString();
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.putString(MainActivity.SLEEP_DATA_LIST, tempPrefString);
                         editor.apply();
-                        finish();
+
+                        AlertDialog.Builder d = new AlertDialog.Builder(this);
+                        d.setTitle("Sleep Successfully Added!");
+                        d.setMessage("A new sleep on " + dateString + " has been added!");
+                        d.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int i) {
+                                finish();
+                            }
+                        });
+                        d.show();
+
                     }
             }
         }
         catch (IOException exception){
             //TO DO
             //need to pop up an error message... "a required input was left blank, please provide input and try again"
+            Button button = findViewById(R.id.save_sleep_button);
+            Snackbar.make(button,
+                    "Error! Please make sure all inputs are completed and try again.",
+                    Snackbar.LENGTH_LONG).show();
             System.out.println(exception.getMessage());
         }
         catch (IndexOutOfBoundsException exception) {
             //TO DO
             //need to pop up an error message... "a required input was left blank, please provide input and try again"
+            Button button = findViewById(R.id.save_sleep_button);
+            Snackbar.make(button,
+                    "Error! Please make sure all inputs are completed and try again.",
+                    Snackbar.LENGTH_LONG).show();
             System.out.println(exception.getMessage());
         }
     }

@@ -16,6 +16,8 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
@@ -123,6 +125,11 @@ public class StatMenuActivity extends AppCompatActivity implements View.OnClickL
                 avgSleepDuration.setText(sleepListForStats.getAverageDuration(30, sleepListForStats));
 
             }
+
+            Button button = findViewById(R.id.stat_show_btn);
+            Snackbar.make(button,
+                    "Statistics shown!",
+                    Snackbar.LENGTH_LONG).show();
         }
     }
 
