@@ -67,27 +67,34 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View view) {
         int id = view.getId();
         if (id == R.id.loginBtn){
-            EditText txtUsername = findViewById(R.id.goalTitleInput);
-            String username = txtUsername.getText().toString();
 
+            EditText txtUsername = findViewById(R.id.usernameInput);
             EditText txtPassword = findViewById(R.id.passwordInput);
-            String password = txtPassword.getText().toString();
 
-            //System.out.println("password: " + password + " username: " + username);
+            if(txtUsername.getText() != null && txtPassword.getText() != null) {
+                String username = txtUsername.getText().toString();
+                String password = txtPassword.getText().toString();
 
-            String defVal = "";
+                String defVal = "xxxxx";
 
-            String currentUsername = sharedPreferences.getString(USERNAME_KEY,defVal);
-            String currentPassword = sharedPreferences.getString(PASSWORD_KEY,defVal);
-            if(username.equals(currentUsername) && password.equals(currentPassword)){
+                String currentUsername = sharedPreferences.getString(USERNAME_KEY,defVal);
+                String currentPassword = sharedPreferences.getString(PASSWORD_KEY,defVal);
+                if(username.equals(currentUsername) && password.equals(currentPassword)){
 
-                Intent mainMenuIntent = new Intent(this, MainActivity.class);
-                startActivity(mainMenuIntent);
+                    Intent mainMenuIntent = new Intent(this, MainActivity.class);
+                    startActivity(mainMenuIntent);
+                }
+                else{
+                    TextInputLayout til = (TextInputLayout) findViewById(R.id.passwordInputLayout);
+                    til.setError("Username or Password is incorrect.");
+                }
             }
             else{
-                TextInputLayout til = (TextInputLayout) findViewById(R.id.usernameInputLayout);
-                til.setError("Username or Password is incorrect.");
+                TextInputLayout til = (TextInputLayout) findViewById(R.id.passwordInputLayout);
+                til.setError("Missing Username or Password.");
             }
+
+            //System.out.println("password: " + password + " username: " + username);
 
 
         }
@@ -100,7 +107,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onFocusChange(View view, boolean hasFocus) {
         if (hasFocus) {
-            TextInputLayout til = (TextInputLayout) findViewById(R.id.usernameInputLayout);
+            TextInputLayout til = (TextInputLayout) findViewById(R.id.passwordInputLayout);
             til.setError(null);
         }
     }
