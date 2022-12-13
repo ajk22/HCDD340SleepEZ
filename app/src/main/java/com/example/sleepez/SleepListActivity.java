@@ -52,7 +52,7 @@ public class SleepListActivity extends AppCompatActivity {
         String[] sleepDataObjects = listData.split("-");
         SleepDataList tempDataList = new SleepDataList();
 
-        for(int i = 0; i < sleepDataObjects.length; i++) {
+        for(int i = sleepDataObjects.length - 1; i >= 0; i--) {
             String tempObjectString = sleepDataObjects[i];
             String[] tempObjectStringValues = tempObjectString.split(",");
 
