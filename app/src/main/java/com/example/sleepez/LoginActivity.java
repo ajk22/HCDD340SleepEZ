@@ -15,8 +15,13 @@ import android.widget.EditText;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 
-public class LoginActivity extends AppCompatActivity implements  View.OnClickListener {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener, View.OnFocusChangeListener {
     private SharedPreferences sharedPreferences;
+
+    @Override
+    public <T extends View> T findViewById(int id) {
+        return super.findViewById(id);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +30,11 @@ public class LoginActivity extends AppCompatActivity implements  View.OnClickLis
 
         findViewById(R.id.loginBtn).setOnClickListener(this);
         findViewById(R.id.signinLink).setOnClickListener(this);
+        findViewById(R.id.usernameInput).setOnClickListener(this);
+        findViewById(R.id.passwordInput).setOnClickListener(this);
         sharedPreferences = getSharedPreferences(MainActivity.SHARED_PREF_NAME, MODE_PRIVATE);
+        findViewById(R.id.passwordInput).setOnFocusChangeListener(this);
+        findViewById(R.id.usernameInput).setOnFocusChangeListener(this);
     }
 
     void saveUserInformation(String username, String password) {
@@ -66,6 +75,14 @@ public class LoginActivity extends AppCompatActivity implements  View.OnClickLis
         else if (id == R.id.signinLink){
             Intent signUpIntent = new Intent(this, SignUpActivity.class);
             startActivity(signUpIntent);
+        }
+    }
+
+    @Override
+    public void onFocusChange(View view, boolean hasFocus) {
+        if (hasFocus) {
+            TextInputLayout til = (TextInputLayout) findViewById(R.id.usernameInputLayout);
+            til.setError(null);
         }
     }
 }

@@ -6,8 +6,10 @@ import static com.example.sleepez.MainActivity.SHARED_PREF_NAME;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -68,9 +70,16 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             String password = txtPassword.getText().toString();
             //System.out.println("username: " + username + " password: " + password);
             saveUserInformation(username,password);
-            Snackbar.make(findViewById(R.id.signUpBtn), R.string.accountSuccess, Snackbar.LENGTH_SHORT).show();
-            txtUsername.setText("");
-            txtPassword.setText("");
+            //make(findViewById(R.id.signUpBtn), R.string.accountSuccess, Snackbar.LENGTH_SHORT).show();
+            AlertDialog.Builder d = new AlertDialog.Builder(this);
+            d.setTitle("Account Created");
+            d.setMessage("Welcome " + username + "!");
+            d.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int i) {
+                    startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
+                }
+            });
+            d.show();
 
         }
     }
