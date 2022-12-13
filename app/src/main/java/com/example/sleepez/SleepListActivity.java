@@ -50,8 +50,6 @@ public class SleepListActivity extends AppCompatActivity {
 
     public ArrayList<SleepData> convertDataStringToList(String listData) {
         String[] sleepDataObjects = listData.split("-");
-        System.out.println("TESTING PERSISTENT DATA 2...\n");
-        System.out.println(sleepDataObjects[0]);
         SleepDataList tempDataList = new SleepDataList();
 
         for(int i = 0; i < sleepDataObjects.length; i++) {
