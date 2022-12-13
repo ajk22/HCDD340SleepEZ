@@ -106,6 +106,7 @@
     <string name="haveAccount">Already have an account?</string>
     <string name="createAccount">Create Account</string>
     <string name="accountSuccess">Account Successfully Created!</string>
+    <string name="logout">Log Out</string>
 
 
 </resources>
