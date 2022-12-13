@@ -19,6 +19,8 @@
 
     <!--Sub-Headers-->
     <string name="current_goal_header">Current Goal</string>
+    <string name="set_goal_title_header">Goal Title</string>
+    <string name="set_goal_desc_header">Goal Description</string>
 
     <!--Button Titles-->
     <string name="newGoal">New Goal</string>
@@ -33,6 +35,10 @@
         have one active goal at a time</string>
     <string name="warning_positive">Set New Goal</string>
     <string name="warning_negative">Cancel</string>
+
+    <!--Input Boxes-->
+    <string name="set_goal_title">Go to Bed Earlier</string>
+    <string name="set_goal_desc">Go to bed by 11:30PM everyday</string>
 
     <string name="menu_info">Info</string>
 
