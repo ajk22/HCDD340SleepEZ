@@ -206,13 +206,11 @@ public class NewSleepActivity extends AppCompatActivity {
                 //need to make sure that dream string does not contain the character which is used to split
                 throw new IOException();
             } else {
-                System.out.println("DATA BEFORE SAVING...");
                 System.out.println(sharedPreferences.getString(MainActivity.SLEEP_DATA_LIST, null));
                 SleepData tempSleepData = new SleepData(dateString, bedTime, wakeTime, ratingLevel, tempDreamString);
                 String tempPrefString = sharedPreferences.getString(MainActivity.SLEEP_DATA_LIST, null);
 
                     if (tempPrefString.equals("empty")) {
-                        System.out.println("Testing IS EMPTY");
                         tempPrefString = tempSleepData.toString();
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.putString(MainActivity.SLEEP_DATA_LIST, tempPrefString);
@@ -225,9 +223,6 @@ public class NewSleepActivity extends AppCompatActivity {
                         editor.apply();
                         finish();
                     }
-
-                System.out.println("DATA AFTER SAVING...");
-                System.out.println(sharedPreferences.getString(MainActivity.SLEEP_DATA_LIST, null));
             }
         }
         catch (IOException exception){

@@ -29,14 +29,15 @@ public class SleepDataList {
 
         int totalMinutes = 0;
 
-        for (int i = list.getSleepDataArrayList().size() - 1; i > list.getSleepDataArrayList().size() - (range - 1); i--) {
+        for (int i = list.getSleepDataArrayList().size() - 1; i > list.getSleepDataArrayList().size() - (range + 1); i--) {
             int tempMinutes = list.getSleepDataArrayList().get(i).getSleepDuration().getHourDuration() * 60;
             tempMinutes = tempMinutes + list.getSleepDataArrayList().get(i).getSleepDuration().getMinDuration();
             totalMinutes = totalMinutes + tempMinutes;
         }
 
-        int tempHourDuration = totalMinutes / 60;
-        int tempMinuteDuration = totalMinutes % 60;
+        int averageTimeInMinutes = Math.round(totalMinutes / range);
+        int tempHourDuration = averageTimeInMinutes / 60;
+        int tempMinuteDuration = averageTimeInMinutes % 60;
         String tempString = "";
 
         if (tempHourDuration < 10) {
@@ -58,7 +59,7 @@ public class SleepDataList {
 
         int totalQuality = 0;
 
-        for (int i = list.getSleepDataArrayList().size() - 1; i > list.getSleepDataArrayList().size() - (range - 1); i--) {
+        for (int i = list.getSleepDataArrayList().size() - 1; i > list.getSleepDataArrayList().size() - (range + 1); i--) {
             int tempQuality = list.getSleepDataArrayList().get(i).getSleepQuality();
             totalQuality = totalQuality + tempQuality;
         }
@@ -76,9 +77,6 @@ public class SleepDataList {
             String temp = list.getSleepDataArrayList().get(i).getWakeTime().toString();
 
             int tempHour = Integer.valueOf(temp.substring(0,2));
-            if (tempHour > 12) {
-                tempHour = tempHour + 12;
-            }
             int tempMin = Integer.valueOf(temp.substring(3,5));
             int timeInMinutes = (tempHour * 60) + tempMin;
 
@@ -86,21 +84,15 @@ public class SleepDataList {
         }
 
         int totalTimeInMinutes = 0;
-        for (int i = tempList.size() - 1; i > tempList.size() - (range - 1); i--) {
+
+        for (int i = tempList.size() - 1; i > tempList.size() - (range + 1); i--) {
             totalTimeInMinutes = totalTimeInMinutes + tempList.get(i);
         }
 
         int averageTimeInMinutes = Math.round(totalTimeInMinutes / range);
         int hourQuotient = averageTimeInMinutes / 60;
         int minuteRemainder = averageTimeInMinutes % 60;
-        String format = "PM";
-
-        if (hourQuotient > 12) {
-            hourQuotient = hourQuotient - 12;
-            format = "AM";
-        } else if (hourQuotient == 12) {
-            format = "AM";
-        }
+        String format = "AM";
 
         SleepTime tempTime = new SleepTime(hourQuotient, minuteRemainder, format);
 
@@ -114,7 +106,7 @@ public class SleepDataList {
             String temp = list.getSleepDataArrayList().get(i).getBedTime().toString();
 
             int tempHour = Integer.valueOf(temp.substring(0,2));
-            if (tempHour > 12) {
+            if (list.getSleepDataArrayList().get(i).getBedTime().getFormat().equals("AM") && list.getSleepDataArrayList().get(i).getBedTime().getHour() != 12) {
                 tempHour = tempHour + 12;
             }
             int tempMin = Integer.valueOf(temp.substring(3,5));
@@ -124,8 +116,9 @@ public class SleepDataList {
         }
 
         int totalTimeInMinutes = 0;
-        for (int i = tempList.size() - 1; i > tempList.size() - (range - 1); i--) {
+        for (int i = tempList.size() - 1; i > tempList.size() - (range + 1); i--) {
             totalTimeInMinutes = totalTimeInMinutes + tempList.get(i);
+
         }
 
         int averageTimeInMinutes = Math.round(totalTimeInMinutes / range);

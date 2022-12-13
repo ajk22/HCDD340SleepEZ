@@ -80,8 +80,10 @@
     <string name="avgSleepQuality"><u>Average Sleep Quality</u></string>
 
     <string-array name="stat_select_array">
-        <item>Past Week</item>
-        <item>Past Month</item>
+        <item>Past 3 Days</item>
+        <item>Past 7 Days</item>
+        <item>Past 14 Days</item>
+        <item>Past 30 Days</item>
         <item>All Sleep Data</item>
     </string-array>
 
