@@ -59,16 +59,6 @@ public class NewSleepActivity extends AppCompatActivity {
 //        SharedPreferences.Editor editor = sharedPreferences.edit();
 //        editor.putString(MainActivity.SLEEP_DATA_LIST, "empty");
 //        editor.apply();
-        try {
-            String tempPrefString = sharedPreferences.getString(MainActivity.SLEEP_DATA_LIST, null);
-            if (tempPrefString.equals("empty")) {
-                System.out.println("Testing for empty list");
-            }
-        } catch (NullPointerException ex) {
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putString(MainActivity.SLEEP_DATA_LIST, "empty");
-            editor.apply();
-        }
 
         dateView = (TextView) findViewById(R.id.date_selected_text);
         wakeTimeSelected = (TextView) findViewById(R.id.wake_time_selected);
