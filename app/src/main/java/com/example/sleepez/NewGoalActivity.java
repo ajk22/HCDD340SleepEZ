@@ -5,13 +5,12 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class NewGoalActivity extends AppCompatActivity implements View.OnClickListener {
-    private SharedPreferences sharedPreferences;
+    private SharedPreferences sharedPrefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +20,7 @@ public class NewGoalActivity extends AppCompatActivity implements View.OnClickLi
         Button newGoal = findViewById(R.id.set_goal_btn_id);
         newGoal.setOnClickListener(this);
 
-        sharedPreferences = getSharedPreferences(MainActivity.SHARED_PREF_NAME, MODE_PRIVATE);
+        sharedPrefs = getSharedPreferences(MainActivity.SHARED_PREF_NAME, MODE_PRIVATE);
     }
 
     @Override
@@ -33,20 +32,16 @@ public class NewGoalActivity extends AppCompatActivity implements View.OnClickLi
             warning.setPositiveButton(R.string.warning_positive, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-
-                    EditText goalDescription = (EditText) findViewById(R.id.goalDescriptionInput);
-                    EditText goalTitle = (EditText) findViewById(R.id.goalTitleInput);
-
-                    editor.putString(MainActivity.GOAL_TITLE, goalTitle.getText().toString());
-                    editor.putString(MainActivity.GOAL_DESCRIPTION, goalDescription.getText().toString());
-                    editor.apply();
-                    finish();
+                    //Persistent Data Implementation
                 }
             });
             warning.setNegativeButton(R.string.warning_negative, null);
             warning.show();
         }
+    }
+
+    public void saveGoalInfo(String title, String description) {
+        SharedPreferences.Editor editor = sharedPrefs.edit();
+
     }
 }
